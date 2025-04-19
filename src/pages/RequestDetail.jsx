@@ -25,6 +25,7 @@ const RequestDetails = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({});
+  const detailData = useLoaderData();
 
   useEffect(() => {
     (async () => {
@@ -35,9 +36,7 @@ const RequestDetails = () => {
     })();
   }, []);
 
-  const detailData = useLoaderData();
-
-  console.log(detailData);
+  if (!detailData) return navigate('/dashboard/loans');
 
   return (
     <>
@@ -102,35 +101,6 @@ const RequestDetails = () => {
               </Table>
             </CardContent>
           </Card>
-
-          {/* <Card>
-            <CardHeader>
-              <CardTitle>Reference Information</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Reference</TableHead>
-                    <TableHead>Relationship</TableHead>
-                    <TableHead>Phone</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className='font-bold text-xl'>Reference 1</TableCell>
-                    <TableCell>dad (&lt; )</TableCell>
-                    <TableCell>4505770869</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className='font-bold text-xl'>Reference 2</TableCell>
-                    <TableCell>Olyvier Boulerice (&lt; )</TableCell>
-                    <TableCell>4505770869</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card> */}
 
           <Card>
             <CardHeader>
